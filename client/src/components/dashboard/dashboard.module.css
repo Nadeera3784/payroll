@@ -1,0 +1,37 @@
+
+
+@media (min-width : 768px){
+    .Profile{
+        display: block;
+        border: 1px solid #C9C8C9;
+        border-radius: 5px;
+        padding-top: 20px;
+    }
+    .RightTop{
+        border-left: 1px solid #C9C8C9;
+    } 
+    .ProfileTop{
+        border-bottom: 1px solid #C9C8C9
+    }
+    .ProfileTop .firstDiv{
+        width: 100%;  
+        text-align: center;     
+    }
+    .ProfileTop .firstDiv i{
+        font-size: 400%
+    }
+    .ProfileTop .secondDiv{
+        width: 100%;  
+        text-align: center;   
+    }
+    .ProfileBottom .h2{
+        width: 100%;  
+        text-align: center; 
+    }
+}
+
+@media(max-width : 768px){
+    .Profile{
+        display: none;
+    }
+}

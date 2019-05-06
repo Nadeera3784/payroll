@@ -1,0 +1,28 @@
+.Head {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.Head:hover{
+    background-color:#40A4C8;
+    color: white;
+    cursor: pointer;
+}
+.Head td{
+    text-align: left;
+    padding: 8px;
+    width: 11%;
+} 
+.Head td:last-child{
+    text-align: center;
+    color: green
+} 
+.Head td:nth-child(4){
+   margin-right: 60px;
+}
+/*.Head td:nth-child(even){
+    background-color: #ddd;
+ }
+tr:nth-child(even){background-color: #f2f2f2}*/

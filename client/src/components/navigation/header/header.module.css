@@ -1,0 +1,12 @@
+.Header {
+    width: 100%;
+    margin: 0 !important;
+    height: 50%;
+    float:left;
+}
+
+@media (max-width : 768px){
+    .desktop{
+        display : none;
+    }
+}

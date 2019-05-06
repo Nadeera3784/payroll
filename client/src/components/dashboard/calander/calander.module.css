@@ -1,0 +1,9 @@
+.Calander{
+    border: none;
+    width: 100%;
+}
+
+.Calander button{
+    padding:10px;
+    color: #40A4C8
+}
