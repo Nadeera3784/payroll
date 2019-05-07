@@ -6,7 +6,6 @@ import Card from '../ui/card/card';
 import classes from './dashboard.module.css';
 
 const Dashboard = (props) => {
-    const classForImg = [ 'fas fa-user-circle' , classes.firstDiv ]
     return (
          <div style={{margin:'2%'}}>
              <Row>

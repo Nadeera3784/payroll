@@ -14,7 +14,9 @@ const employee = [
         surname : 'Bashirian',
         birthday : 'February 24, 1978',
         basicSalary : 20000,
-        email : 'bell@abcd.com'  
+        email : 'bell@abcd.com',
+        joinDate : 'January 10, 2018',
+        department : 'Management'    
     },
     {
         firstName : 'Jaunita',
@@ -22,7 +24,9 @@ const employee = [
         surname : 'Kassulke',
         birthday : 'December 28, 1977',
         basicSalary : 30000,
-        email : 'Jaunita@abcd.com'  
+        email : 'Jaunita@abcd.com',
+        joinDate : 'January 10, 2018',
+        department : 'Management'   
     },
     {
         firstName : 'Bellyy',
@@ -30,7 +34,9 @@ const employee = [
         surname : 'Bashir',
         birthday : 'February 24, 1978',
         basicSalary : 50000,
-        email : 'bell23@abcd.com'  
+        email : 'bell23@abcd.com',
+        joinDate : 'January 10, 2018',
+        department : 'Dolor Sit Amet'     
     },
     {
         firstName : 'Jaunitafd',
@@ -38,7 +44,9 @@ const employee = [
         surname : 'Kass',
         birthday : 'December 28, 1977',
         basicSalary : 15000,
-        email : 'Jaunit12a@abcd.com'  
+        email : 'Jaunit12a@abcd.com',
+        joinDate : 'January 10, 2018',
+        department : 'Labore Et Dolore'     
     },    
 ]
 
@@ -78,7 +86,9 @@ module.exports = async () =>{
             surname : employee[i].surname,
             birthday : employee[i].birthday,
             basicSalary : employee[i].basicSalary,
-            email : employee[i].email
+            email : employee[i].email,
+            joinDate : employee[i].joinDate,
+            department : employee[i].department
         });
         dep.employees.push(emp);
         dep.save();

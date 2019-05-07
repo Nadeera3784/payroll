@@ -1,6 +1,15 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, TOGGLE_SIDEDRAWER, CHANGE_ACTIVE_LINK, FETCH_EMPLOYEE, FETCH_EMPLOYEE_ERROR,TOGGLE_MODAL } from './types';
+import {  AUTH_USER, 
+          AUTH_ERROR, 
+          TOGGLE_SIDEDRAWER, 
+          CHANGE_ACTIVE_LINK, 
+          FETCH_EMPLOYEE, 
+          FETCH_EMPLOYEE_ERROR,
+          TOGGLE_MODAL,
+          NEW_EMPLOYEE,
+          NEW_EMPLOYEE_ERROR } from './types';
 
+//==========================================AUTHENTICATION =======================================
 export const signup = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(
@@ -38,7 +47,7 @@ export const signout = () => {
     payload: ''
   };
 };
-//=========================== Interface =================
+//=========================== Interface =================================================
 export const toggle = () => {
   return ({
     type: TOGGLE_SIDEDRAWER
@@ -59,12 +68,12 @@ export const toggleModal = () => {
 }
 
 
-//========================== Employee =====================
+//========================== Employee =======================================================
 
 export const fetchEmployees = () => async dispatch => {
   try{
     axios.defaults.headers.common['authorization'] = localStorage.getItem('token')
-    const employees = await axios.get('http://localhost:9000/departments');
+    const employees = await axios.get('http://localhost:9000/employees');
     dispatch({
       type: FETCH_EMPLOYEE,
       payload : employees.data
@@ -76,4 +85,23 @@ export const fetchEmployees = () => async dispatch => {
     })
   }  
 
+}
+
+export const newEmployee = (formData, cb) => async dispatch => {
+  try{
+    console.log(formData);
+    axios.defaults.headers.common['authorization'] = localStorage.getItem('token')
+    const newEmployee = await axios.post('http://localhost:9000/employees/new', formData);
+    console.log(newEmployee.data);
+    dispatch({
+      type: NEW_EMPLOYEE,
+      payload : newEmployee.data
+    })
+    cb();
+  }catch(err){
+    dispatch({
+      type: NEW_EMPLOYEE_ERROR,
+      payload : err
+    })
+  }
 }

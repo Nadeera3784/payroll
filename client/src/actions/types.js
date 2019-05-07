@@ -5,3 +5,5 @@ export const CHANGE_ACTIVE_LINK = 'change_active_link';
 export const FETCH_EMPLOYEE = 'fetch_employee';
 export const FETCH_EMPLOYEE_ERROR = 'fetch_employee_error';
 export const TOGGLE_MODAL = 'toggle_modal';
+export const NEW_EMPLOYEE = 'new_employee';
+export const NEW_EMPLOYEE_ERROR = 'new_employee_error'

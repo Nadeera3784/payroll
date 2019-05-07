@@ -5,9 +5,10 @@ import  * as actions from '../../actions/index';
 
 class EmployeesList extends React.Component{
     componentDidMount(){
-        const done = this.props.fetchEmployees();
+        this.props.fetchEmployees();
     }
     render(){
+     //   this.props.fetchEmployees();
         return (
             <Employees data={this.props.employeeList} />
         )      

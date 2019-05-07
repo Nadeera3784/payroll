@@ -11,13 +11,13 @@ class ModalContainer extends React.Component{
             <Aux>
                 <Backdrop show={this.props.modal} />
                 <div>
-                    <Modal size="lg" isOpen={this.props.modal} className={this.props.className}>
+                    <Modal size="md" isOpen={this.props.modal} className={this.props.className}>
                         <ModalHeader>Modal title</ModalHeader>
                         <ModalBody>
                             {this.props.children}
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="primary" onClick={this.props.toggleModal}>Do Something</Button>{' '}
+                            <Button color="primary" onClick={this.props.toggleModal}>Cancel</Button>{' '}
                         </ModalFooter>
                     </Modal>
                 </div>

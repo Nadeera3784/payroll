@@ -1,32 +1,47 @@
 const mongoose = require('mongoose');
 const Employee = mongoose.model('employee');
 const Department = mongoose.model('department');
+const passport = require('passport');
+
+
+const requireAuth =  passport.authenticate('jwt', { session: false })
 
 module.exports = (app) => {
-    app.get('/employees' , async (req,res) => {
+    app.get('/employees' , requireAuth , async (req,res) => {
         const employees = await Employee.find({}).populate();
 
-        const extendedEmployees = await Employee.aggregate([{
+       /* const extendedEmployees = await Employee.aggregate([{
             $lookup : {
                 from: 'departments',
                 localField : '_id',
                 foreignField : 'employees',
                 as : 'department'
             }
-        }]);
+        }]); */
         res.send(employees);
     });
 
     app.post('/employees/new' , async (req,res) => {
-        const department = await Department.findOne({name:req.body.department});
+        console.log('from router');
+        const department = await Department.findOne({name:req.body.department.value});
 
-        const employee = new Employee(req.body);
-        department.employees.push(employee);
+        const employee = new Employee({
+            firstName : req.body.firstName,
+            lastName: req.body.lastName,
+            surname: req.body.surname,
+            birthday: req.body.birthday,
+            email : req.body.email,
+            department : req.body.department.value,
+            joinDate : req.body.joinDate,
+            basicSalary : req.body.basicSalary,
+        });
 
+        department.employees.push(employee._id);
         await department.save();
-        employee.save();
+        await employee.save();
 
-        res.send(department.populate());
+        const allEmployee = await Employee.find({}).populate();
+        res.send(allEmployee)
 
     })
 
