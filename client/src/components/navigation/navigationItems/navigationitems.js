@@ -9,22 +9,27 @@ const Navitems = (props) => {
                 <Navigationitem 
                     id='1' 
                     link="/dashboard" 
-                    active = {props.activeLinkId=== '1' ? true : false} 
+                    active = {window.location.pathname === '/dashboard' ? true : false} 
                     name="Dashboard"/>
                 <Navigationitem 
                     id='2' 
                     link="/employees"  
-                    active = {props.activeLinkId === '2' ? true : false} 
+                    active = {window.location.pathname === '/employees' ? true : false} 
                     name="Employees" />
                 <Navigationitem 
                     id='3' 
-                    link="/payments"  
-                    active = {props.activeLinkId === '3' ? true : false} 
-                    name="Payments" />
+                    link="/attendance"  
+                    active = {window.location.pathname === '/attendance' ? true : false} 
+                    name="Attendance" />                    
                 <Navigationitem 
                     id='4' 
-                    link="/leaves" 
+                    link="/payments"  
                     active = {props.activeLinkId === '4' ? true : false} 
+                    name="Payments" />
+                <Navigationitem 
+                    id='5' 
+                    link="/leaves" 
+                    active = {props.activeLinkId === '5' ? true : false} 
                     name="Leaves" />
             </ul>
         )

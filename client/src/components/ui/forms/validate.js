@@ -22,8 +22,11 @@ const validate = values => {
 
     }if(!values.basicSalary){
         errors.basicSalary = 'Required'
-    }else if(!typeof(values.basicSalary) === Number){
+    }/*else if(typeof(values.basicSalary) != Number){
         errors.basicSalary = 'Use only numbers'
+    }*/
+    if(!values.designation){
+        errors.designation = 'Required'
     }
     if(!values.department){
         errors.department = 'Required'

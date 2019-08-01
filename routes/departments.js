@@ -7,7 +7,7 @@ const passport = require('passport');
 const requireAuth =  passport.authenticate('jwt', { session: false })
 
 module.exports = (app) => {
-    app.get('/departments' , requireAuth , async (req,res) => {
+    app.get('/departments' /*, requireAuth */, async (req,res) => {
         const data = await Department.find({}).populate('employees');
         res.json(data);
     });

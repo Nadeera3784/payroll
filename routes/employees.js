@@ -8,7 +8,7 @@ const requireAuth =  passport.authenticate('jwt', { session: false })
 
 module.exports = (app) => {
     app.get('/employees' , requireAuth , async (req,res) => {
-        const employees = await Employee.find({}).populate();
+        const employees = await Employee.find({}).populate('attendance');
 
        /* const extendedEmployees = await Employee.aggregate([{
             $lookup : {
@@ -22,8 +22,7 @@ module.exports = (app) => {
     });
 
     app.post('/employees/new' , async (req,res) => {
-        console.log('from router');
-        const department = await Department.findOne({name:req.body.department.value});
+        const department = await Department.findOne({name:req.body.department});
 
         const employee = new Employee({
             firstName : req.body.firstName,
@@ -31,7 +30,8 @@ module.exports = (app) => {
             surname: req.body.surname,
             birthday: req.body.birthday,
             email : req.body.email,
-            department : req.body.department.value,
+            department : req.body.department,
+            designation: req.body.designation,
             joinDate : req.body.joinDate,
             basicSalary : req.body.basicSalary,
         });
@@ -39,7 +39,6 @@ module.exports = (app) => {
         department.employees.push(employee._id);
         await department.save();
         await employee.save();
-
         const allEmployee = await Employee.find({}).populate();
         res.send(allEmployee)
 

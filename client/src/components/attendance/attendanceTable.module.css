@@ -1,0 +1,23 @@
+.Table {
+    display: flex;
+    border: 1px solid #ddd;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Table div:first-child{
+    background-color: #F8F9FA;
+    border-right: 1px solid #ddd; 
+    flex:1
+}
+
+.Table div:last-child {
+    background-color: #F8F9FA;
+    flex:9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Table div:last-child div {
+    width: 5%;
+}

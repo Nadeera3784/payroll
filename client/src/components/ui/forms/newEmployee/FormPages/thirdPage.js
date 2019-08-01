@@ -30,12 +30,15 @@ const renderDropDown = ({ input, data, label, valueField, textField, meta: { tou
 const ThirdPage = (props) => {
     const { handleSubmit, pristine, previousPage, submitting, employees } = props
     
-    let dropDownData= [];
+    let dropDownDepartments= [];
+    const flag = {
+        value : ''
+    }
     employees.forEach(employee => {
-        const obj = {
-            value : employee.department
+        if(flag.value !== employee.department){
+            flag.value = employee.department
+            dropDownDepartments.push(flag.value);
         }
-        dropDownData.push(obj);
     }) 
 
     return(
@@ -47,8 +50,14 @@ const ThirdPage = (props) => {
                 label='basicSalary'
             />
             <Field 
+                name='designation'
+                type='text'
+                component={renderField}
+                label='designation'
+            />
+            <Field 
                 name='department'
-                data={dropDownData}
+                data={dropDownDepartments}
                 component={renderDropDown}
                 label='Department'
                 valueField="value"

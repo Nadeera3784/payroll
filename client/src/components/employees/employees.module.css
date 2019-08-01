@@ -17,7 +17,19 @@
 .Head td:last-child{
     text-align: center;
 }
-
+.bodyContainer{
+    position: relative;
+}
+.table{
+   
+}
 .addNew {
     margin: 10px 0 10px 0;
+}
+
+@media(max-width : 768px){
+    .bodyContainer{
+        overflow: scroll;
+        
+    }
 }

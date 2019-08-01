@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 import Dashboard from '../../containers/dashboard/dashboardContainer';
 import Employee from '../../containers/employees/employeeContainer';
+import Attendance from '../../containers/attendance/attendanceContainer';
 const Payment = () => <div id='3'>Paymenst</div>
 const Leaving = () => <div id='4'>Leaving</div>
 
@@ -21,6 +22,7 @@ class Layout extends React.Component {
                 <main style={{marginTop : '20px'}}>
                     <Route path="/dashboard" exact render={() => <Dashboard />} />
                     <Route path="/employees" exact render={() => <Employee />} />
+                    <Route path="/attendance" exact render={() => <Attendance />} />
                     <Route path="/payments" exact render={() => <Payment />} />
                     <Route path="/leaves"exact render={() => <Leaving />} />
                 </main>

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const attendanceSchema = new Schema({
-    attendanceDate : Date,
+    attendanceDate : String,
 });
 
 mongoose.model('attendance' , attendanceSchema);

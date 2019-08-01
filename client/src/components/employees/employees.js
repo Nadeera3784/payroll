@@ -37,25 +37,28 @@ const Employees = (props) => {
     }
     
     return (
-        
+        // add condition for return model children (set value in store spinerr = false if(!spiner ? <EmployeeForm /> : <Spinner />))
         <Container>
-            <Modal>
+            <Modal title="New Employee">
                 <EmployeeForm onSubmit={handleSubmit} />
             </Modal>
             <Button className={classes.addNew} color="success" onClick={props.toggleModal}> + Add New Employee</Button>
-            <table style={{overflowX:'auto'}}>
-                <tbody>
-                    <tr className={classes.Head}>
-                        <td>Employee Id</td>
-                        <td>First Name</td>
-                        <td>Last Name</td>
-                        <td>Department/Designation</td>
-                        <td>Email</td>
-                        <td>Status</td>
-                    </tr>
-                    {renderEmployees()} 
-                </tbody>
-            </table>         
+            <div className={classes.bodyContainer}>
+                <table className={classes.table} style={{overflowX:'auto'}}>
+                    <tbody>
+                        <tr className={classes.Head}>
+                            <td>Employee Id</td>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Department/Designation</td>
+                            <td>Email</td>
+                            <td>Status</td>
+                        </tr>
+                        {renderEmployees()} 
+                    </tbody>
+                </table> 
+            </div>
+        
         </Container>
     )
 }

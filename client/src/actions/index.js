@@ -89,10 +89,8 @@ export const fetchEmployees = () => async dispatch => {
 
 export const newEmployee = (formData, cb) => async dispatch => {
   try{
-    console.log(formData);
     axios.defaults.headers.common['authorization'] = localStorage.getItem('token')
     const newEmployee = await axios.post('http://localhost:9000/employees/new', formData);
-    console.log(newEmployee.data);
     dispatch({
       type: NEW_EMPLOYEE,
       payload : newEmployee.data
